@@ -7,7 +7,7 @@
 [ext_resource path="res://Enemies/WalkingEnemy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://World/Checkpoint.tscn" type="PackedScene" id=6]
 [ext_resource path="res://World/TileMap.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Levels/Level_1.gd" type="Script" id=8]
+[ext_resource path="res://Levels/Level_2.gd" type="Script" id=8]
 
 [node name="Level_2" type="Node2D"]
 script = ExtResource( 8 )

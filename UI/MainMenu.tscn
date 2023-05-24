@@ -180,15 +180,15 @@ custom_constants/separation = 40
 alignment = 1
 
 [node name="Level 2" type="Label" parent="ScoreBoardWindow/VBoxContainer/HBoxContainer2"]
-margin_left = 148.0
-margin_right = 361.0
+margin_left = 135.0
+margin_right = 373.0
 margin_bottom = 45.0
 custom_fonts/font = SubResource( 3 )
-text = " Level 1 "
+text = " Level 2  "
 
 [node name="Score 2" type="Label" parent="ScoreBoardWindow/VBoxContainer/HBoxContainer2"]
-margin_left = 401.0
-margin_right = 594.0
+margin_left = 413.0
+margin_right = 606.0
 margin_bottom = 45.0
 custom_fonts/font = SubResource( 3 )
 text = "Score 1"
