@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://UI/main_theme.tres" type="Theme" id=1]
 [ext_resource path="res://Assets/Font/kenvector_future.ttf" type="DynamicFontData" id=2]
@@ -6,6 +6,10 @@
 [ext_resource path="res://PlayButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Common/my_dynamic_font.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Assets/Music/Intro Theme.mp3" type="AudioStream" id=6]
+[ext_resource path="res://Assets/UI/blue_button00.png" type="Texture" id=7]
+[ext_resource path="res://Assets/UI/blue_button01.png" type="Texture" id=8]
+[ext_resource path="res://Assets/UI/blue_panel.png" type="Texture" id=9]
+[ext_resource path="res://Assets/UI/blue_button02.png" type="Texture" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 150
@@ -24,6 +28,58 @@ font_data = ExtResource( 2 )
 [sub_resource type="DynamicFont" id=3]
 size = 40
 font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 190, 49 )
+
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 190, 49 )
+
+[sub_resource type="StyleBoxTexture" id=9]
+texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 190, 45 )
+
+[sub_resource type="StyleBoxTexture" id=10]
+texture = ExtResource( 9 )
+region_rect = Rect2( 0, 0, 100, 100 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 20
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 18
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=12]
+default_font = SubResource( 11 )
+Button/colors/font_color = Color( 0.878431, 0.878431, 0.878431, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_focus = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = SubResource( 5 )
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = SubResource( 7 )
+Button/styles/normal = SubResource( 8 )
+Button/styles/pressed = SubResource( 9 )
+Panel/styles/panel = SubResource( 10 )
+WindowDialog/colors/title_color = Color( 0, 0, 0, 1 )
+WindowDialog/constants/close_h_ofs = 18
+WindowDialog/constants/close_v_ofs = 18
+WindowDialog/constants/scaleborder_size = 4
+WindowDialog/constants/title_height = 20
+WindowDialog/fonts/title_font = SubResource( 6 )
+WindowDialog/icons/close = null
+WindowDialog/icons/close_highlight = null
+WindowDialog/styles/panel = null
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -64,6 +120,14 @@ margin_right = -88.0
 margin_bottom = -88.0
 custom_fonts/font = ExtResource( 5 )
 text = " Score Board "
+
+[node name="Quit" type="Button" parent="."]
+margin_left = 88.0
+margin_top = 40.0
+margin_right = 273.0
+margin_bottom = 108.0
+custom_fonts/font = ExtResource( 5 )
+text = " Quit "
 
 [node name="Label" type="Label" parent="."]
 anchor_left = 0.5
@@ -108,7 +172,7 @@ margin_top = 11.0
 margin_right = 240.0
 margin_bottom = 56.0
 custom_fonts/font = SubResource( 2 )
-text = "Sound"
+text = "Music"
 
 [node name="SoundCheckButton" type="CheckButton" parent="SettingsWindow/VBoxContainer/HBoxContainer"]
 margin_left = 740.0
@@ -197,6 +261,24 @@ text = "Score 1"
 stream = ExtResource( 6 )
 autoplay = true
 
+[node name="QuitConfirmationDialog" type="ConfirmationDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -537.0
+margin_top = -80.0
+margin_right = -12.0
+margin_bottom = 31.0
+rect_scale = Vector2( 2, 2 )
+theme = SubResource( 12 )
+popup_exclusive = true
+dialog_text = "
+Are you sure you want to exit the game ?
+"
+
 [connection signal="button_up" from="SettingsButton" to="." method="_on_SettingsButton_button_up"]
 [connection signal="button_up" from="ScoreBoardButton" to="." method="_on_ScoreBoardButton_button_up"]
+[connection signal="button_up" from="Quit" to="." method="_on_Quit_button_up"]
 [connection signal="toggled" from="SettingsWindow/VBoxContainer/HBoxContainer/SoundCheckButton" to="." method="_on_SoundCheckButton_toggled"]
+[connection signal="confirmed" from="QuitConfirmationDialog" to="." method="_on_QuitConfirmationDialog_confirmed"]

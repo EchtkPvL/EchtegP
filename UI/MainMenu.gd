@@ -9,6 +9,7 @@ onready var sound_check_button = $SettingsWindow/VBoxContainer/HBoxContainer/Sou
 onready var score_board_window = $ScoreBoardWindow
 onready var score_1 = $"ScoreBoardWindow/VBoxContainer/HBoxContainer/Score 1"
 onready var score_2 = $"ScoreBoardWindow/VBoxContainer/HBoxContainer2/Score 2"
+onready var quit_confirmation_dialog = $QuitConfirmationDialog
 
 
 func _ready():
@@ -46,3 +47,11 @@ func load_score():
 		file.open(score_file2, File.READ)
 		Global.high_score[1] = file.get_var()
 		file.close()
+
+
+func _on_Quit_button_up():
+	quit_confirmation_dialog.popup()
+
+
+func _on_QuitConfirmationDialog_confirmed():
+	get_tree().quit()
