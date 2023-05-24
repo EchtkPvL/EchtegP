@@ -1,0 +1,202 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://UI/main_theme.tres" type="Theme" id=1]
+[ext_resource path="res://Assets/Font/kenvector_future.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://UI/MainMenu.gd" type="Script" id=3]
+[ext_resource path="res://PlayButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Common/my_dynamic_font.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Assets/Music/Intro Theme.mp3" type="AudioStream" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 150
+outline_size = 10
+outline_color = Color( 0.258824, 0.521569, 0.956863, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 20
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 40
+font_data = ExtResource( 2 )
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.698039, 0.811765, 1, 1 )
+
+[node name="PlayButton" parent="." instance=ExtResource( 4 )]
+margin_left = -115.0
+margin_top = 54.0
+margin_right = 115.0
+margin_bottom = 122.0
+target_level_path = "res://UI/LevelSelector.tscn"
+
+[node name="SettingsButton" type="Button" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 104.0
+margin_top = -156.0
+margin_right = 504.0
+margin_bottom = -88.0
+custom_fonts/font = ExtResource( 5 )
+text = " Settings "
+
+[node name="ScoreBoardButton" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -633.0
+margin_top = -156.0
+margin_right = -88.0
+margin_bottom = -88.0
+custom_fonts/font = ExtResource( 5 )
+text = " Score Board "
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -437.5
+margin_top = 152.0
+margin_right = 437.5
+margin_bottom = 322.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "EchtegP"
+
+[node name="SettingsWindow" type="WindowDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -448.0
+margin_top = -124.0
+margin_right = 432.0
+margin_bottom = 164.0
+custom_fonts/title_font = SubResource( 4 )
+popup_exclusive = true
+window_title = "Settings"
+resizable = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsWindow"]
+margin_right = 880.0
+margin_bottom = 97.0
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsWindow/VBoxContainer"]
+margin_top = 14.0
+margin_right = 880.0
+margin_bottom = 82.0
+custom_constants/separation = 500
+alignment = 1
+
+[node name="Label" type="Label" parent="SettingsWindow/VBoxContainer/HBoxContainer"]
+margin_left = 75.0
+margin_top = 11.0
+margin_right = 240.0
+margin_bottom = 56.0
+custom_fonts/font = SubResource( 2 )
+text = "Sound"
+
+[node name="SoundCheckButton" type="CheckButton" parent="SettingsWindow/VBoxContainer/HBoxContainer"]
+margin_left = 740.0
+margin_right = 804.0
+margin_bottom = 68.0
+custom_fonts/font = ExtResource( 5 )
+pressed = true
+flat = true
+
+[node name="ScoreBoardWindow" type="WindowDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -371.0
+margin_top = -219.5
+margin_right = 371.0
+margin_bottom = 219.5
+popup_exclusive = true
+window_title = "Score Board"
+resizable = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScoreBoardWindow"]
+margin_right = 742.0
+margin_bottom = 440.0
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ScoreBoardWindow/VBoxContainer"]
+margin_right = 742.0
+margin_bottom = 14.0
+custom_constants/separation = 40
+alignment = 1
+
+[node name="Level 1" type="Label" parent="ScoreBoardWindow/VBoxContainer/HBoxContainer3"]
+margin_left = 351.0
+margin_right = 351.0
+margin_bottom = 14.0
+
+[node name="Score 1" type="Label" parent="ScoreBoardWindow/VBoxContainer/HBoxContainer3"]
+margin_left = 391.0
+margin_right = 391.0
+margin_bottom = 14.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScoreBoardWindow/VBoxContainer"]
+margin_top = 18.0
+margin_right = 742.0
+margin_bottom = 63.0
+custom_constants/separation = 40
+alignment = 1
+
+[node name="Level 1" type="Label" parent="ScoreBoardWindow/VBoxContainer/HBoxContainer"]
+margin_left = 148.0
+margin_right = 361.0
+margin_bottom = 45.0
+custom_fonts/font = SubResource( 3 )
+text = " Level 1 "
+
+[node name="Score 1" type="Label" parent="ScoreBoardWindow/VBoxContainer/HBoxContainer"]
+margin_left = 401.0
+margin_right = 594.0
+margin_bottom = 45.0
+custom_fonts/font = SubResource( 3 )
+text = "Score 1"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ScoreBoardWindow/VBoxContainer"]
+margin_top = 67.0
+margin_right = 742.0
+margin_bottom = 112.0
+custom_constants/separation = 40
+alignment = 1
+
+[node name="Level 2" type="Label" parent="ScoreBoardWindow/VBoxContainer/HBoxContainer2"]
+margin_left = 148.0
+margin_right = 361.0
+margin_bottom = 45.0
+custom_fonts/font = SubResource( 3 )
+text = " Level 1 "
+
+[node name="Score 2" type="Label" parent="ScoreBoardWindow/VBoxContainer/HBoxContainer2"]
+margin_left = 401.0
+margin_right = 594.0
+margin_bottom = 45.0
+custom_fonts/font = SubResource( 3 )
+text = "Score 1"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+autoplay = true
+
+[connection signal="button_up" from="SettingsButton" to="." method="_on_SettingsButton_button_up"]
+[connection signal="button_up" from="ScoreBoardButton" to="." method="_on_ScoreBoardButton_button_up"]
+[connection signal="toggled" from="SettingsWindow/VBoxContainer/HBoxContainer/SoundCheckButton" to="." method="_on_SoundCheckButton_toggled"]

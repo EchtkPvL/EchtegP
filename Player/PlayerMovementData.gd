@@ -1,0 +1,13 @@
+extends Resource
+class_name PlayerMovementData
+
+var JUMP_FORCE = -1000
+
+var JUMP_RELEASE_FORCE = -500
+var MAX_SPEED = 500
+var ACCELERATION = 500
+var FRICION = 10000
+var GRAVITY = 2000
+var ADDITIONAL_FALL_GRAVITY = 200
+var CLIMB_SPEED = 50*2
+var DOUBLE_JUMP_COUNT = 1

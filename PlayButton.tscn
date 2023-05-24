@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://PlayButton.gd" type="Script" id=1]
+[ext_resource path="res://UI/main_theme.tres" type="Theme" id=2]
+[ext_resource path="res://Common/my_dynamic_font.tres" type="DynamicFont" id=3]
+
+[node name="PlayButton" type="Button"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -30.0
+margin_top = 7.0
+margin_right = 30.0
+margin_bottom = 25.0
+theme = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
+text = " Play "
+script = ExtResource( 1 )
+
+[connection signal="button_up" from="." to="." method="_on_PlayButton_button_up"]
