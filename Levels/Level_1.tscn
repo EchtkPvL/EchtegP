@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://World/Checkpoint.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tiles_packed.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Enemies/WalkingEnemy.tscn" type="PackedScene" id=7]
 [ext_resource path="res://World/Door.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/Music/Grasslands Theme.mp3" type="AudioStream" id=9]
+[ext_resource path="res://World/LevelCanvasLayer.tscn" type="PackedScene" id=10]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 18, 0, 18, 18, 0, 18 )
@@ -398,3 +399,5 @@ position = Vector2( 6690, -82 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
 autoplay = true
+
+[node name="CanvasLayer" parent="." instance=ExtResource( 10 )]
