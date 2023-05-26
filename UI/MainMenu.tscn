@@ -270,9 +270,11 @@ margin_left = -537.0
 margin_top = -80.0
 margin_right = -12.0
 margin_bottom = 31.0
+rect_min_size = Vector2( 400, 140 )
 rect_scale = Vector2( 2, 2 )
 theme = SubResource( 12 )
 popup_exclusive = true
+window_title = "Bitte bestätigen..."
 dialog_text = "
 Are you sure you want to exit the game ?
 "
