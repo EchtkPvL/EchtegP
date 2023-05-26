@@ -13,3 +13,6 @@ data_*/
 # Exports
 *.exe
 *.pck
+
+# mac shit
+.DS_Store

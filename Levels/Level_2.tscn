@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Music/Mushroom Theme.mp3" type="AudioStream" id=1]
 [ext_resource path="res://Common/Coin.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://World/Checkpoint.tscn" type="PackedScene" id=6]
 [ext_resource path="res://World/TileMap.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Levels/Level_2.gd" type="Script" id=8]
+[ext_resource path="res://World/LevelCanvasLayer.tscn" type="PackedScene" id=9]
 
 [node name="Level_2" type="Node2D"]
 script = ExtResource( 8 )
@@ -150,3 +151,5 @@ position = Vector2( 8232, -1805 )
 
 [node name="Coin31" parent="Coins" instance=ExtResource( 2 )]
 position = Vector2( 8232, -1918 )
+
+[node name="CanvasLayer" parent="." instance=ExtResource( 9 )]

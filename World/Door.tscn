@@ -4,7 +4,7 @@
 [ext_resource path="res://tiles_packed.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 7, 10.5 )
+extents = Vector2( 9.05, 10.55 )
 
 [node name="Door" type="Area2D"]
 scale = Vector2( 10, 10 )
@@ -20,7 +20,8 @@ region_enabled = true
 region_rect = Rect2( 180, 103, 18, 23 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -10.5 )
+position = Vector2( 0.0499999, -10.55 )
+scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 
 [connection signal="body_entered" from="." to="." method="_on_Door_body_entered"]
